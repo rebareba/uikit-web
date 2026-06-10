@@ -1,0 +1,9 @@
+.leftTree  {
+  :global(.ant-tree-switcher-noop) {
+    display: none;
+  }
+  /* 可选：调整标题的缩进 */
+  :global(.ant-tree-switcher) {
+    margin-inline-end: 0;
+  }
+}

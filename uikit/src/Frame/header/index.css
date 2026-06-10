@@ -1,0 +1,5 @@
+.header-dark-menu{
+  .ant-menu-item-selected{
+    background-color: #6193F9 !important;
+  }
+}

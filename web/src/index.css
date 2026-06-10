@@ -1,0 +1,15 @@
+/* https://ant.design/docs/react/compatible-style-cn#tailwindcss-%E6%8E%92%E5%B8%83-layer */
+
+@layer tailwind-base, antd;
+
+/* @import "../../packages/common/tokens.css"; */
+
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+

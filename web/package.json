@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development BASE_ENV=development node_modules/.bin/webpack serve --config config/webpack.config.js --progress",
+    "start": "cross-env NODE_ENV=development webpack-dev-server -c config/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js --mode production --progress && npm run tar",
+    "analyzer": "cross-env NODE_ENV=production BUILD_ENV=analyzer webpack -c config/webpack.config.js --mode production",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "fix": "eslint --ext .js,.ts,.jsx,.tsx ./src --fix",
+    "tar": "node ./scripts/tar.js",
+    "build-mock": "node ./scripts/build-mock.js ",
+    "build-api": "node ./scripts/build-api-doc.js "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cf/common": "workspace:*"
+  }
+}

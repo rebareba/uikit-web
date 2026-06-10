@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>统一认证登录</title>
+  <style>
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f0f2f5;
+      border-top: 4px solid #6193F9;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .title{
+      font-size: 14px;
+      margin-top: 10px;
+      color: rgba(29,33,41,0.45);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-container {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 98vh;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div class="loading-container">
+  <div class="spinner"></div>
+  <span class="title">正在登录中...</span>
+</div>
+<script>
+  //本页面只处理sso统一认证登陆和登出的回调逻辑
+  (function() {
+    'use strict';
+    function handleSSOCallback() {
+      // 解析state(登出回来会是json string)
+      function safeJsonParse(str) {
+        if (typeof str !== 'string') return str
+        try {
+          return JSON.parse(str)
+        } catch (e) {
+          return str // 解析失败，返回原字符串
+        }
+      }
+      const redirect_uri = `${window.location.origin}/sso/callback`
+      // 解析地址参数
+      const urlParams = new URLSearchParams(window.location.search)
+      const code = urlParams.get('code')
+      const state = safeJsonParse(urlParams.get('state'))
+      const sso_login_params = safeJsonParse(sessionStorage.getItem('sso_login_params'))
+      const code_verifier = sessionStorage.getItem('code_verifier')
+
+      const {origin} = window.location
+      const [source, targetPathname, targetHash] = (state?.state || state)?.split(':') || []
+
+      if (source && source === 'logout'){
+        // 登出回调
+        try {
+          fetch(`${sso_login_params.ssoLoginUrl}/token/logout`, {
+            method: 'POST',
+          }).then((res) => {
+            if(res.status === 200){
+              // 清除token, 重新回到当前所在模块,会重新走未登录逻辑
+              localStorage.removeItem('auth_token')
+              window.location.href = `${origin}${targetPathname}#/${targetHash}`
+            }
+          }).catch(error => {
+            console.error('登出服务错误:', error)
+          })
+        }catch (e) {
+          console.error('处理SSO登出失败:', e);
+        }
+      }else if (code && source && source === 'login'){
+        // 登陆回调
+        try {
+          fetch(`${sso_login_params.ssoLoginUrl}/oauth2/token`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              code,
+              client_id: sso_login_params.clientId,
+              grant_type: sso_login_params.grantType,
+              code_verifier,
+              redirect_uri,
+            })
+          }).then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            return response.json()
+          }).then(data => {
+            // 保存信息
+            const {access_token, id_token} = data
+            // 每次登陆成功以后,清除code_verifier, 下次登陆重新生成
+            sessionStorage.removeItem('code_verifier')
+            sessionStorage.removeItem('sso_login_params')
+            localStorage.setItem('auth_token', access_token)
+            localStorage.setItem('id_token', id_token)
+            window.location.href = `${origin}${targetPathname}#/${targetHash}`
+          }).catch(error => {
+            console.error('获取令牌服务错误:', error)
+          })
+        }catch ( e) {
+          console.error('处理SSO回调失败:', e);
+        }
+      }
+    }
+    // 页面加载完成后执行回调处理
+    window.addEventListener('load', handleSSOCallback);
+  })();
+</script>
+</body>
+</html>

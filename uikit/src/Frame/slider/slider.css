@@ -1,0 +1,42 @@
+::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 52.9%, .4);
+
+  border-radius: 4px;
+  border: none;
+}
+
+.menu-slide::-webkit-scrollbar-thumb {
+  background: transparent
+}
+
+.menu-slide:hover::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 52.9%, .4);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.menu-slide {
+  border-right: 1px solid var(--gray-fill-normal);
+  .ant-menu-item{
+    border-radius: 0 !important;
+  }
+
+  .ant-menu-submenu{
+    .ant-menu-submenu-title{
+      /*border-radius: 0 !important;*/
+    }
+    .ant-menu-sub{
+      .ant-menu-item{
+        padding-left: 50px !important;
+      }
+    }
+  }
+}

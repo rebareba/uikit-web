@@ -1,0 +1,64 @@
+/*定制一些antd组件的样式, 不能通过设置主题的部分*/
+
+/*调整抽屉的关闭按钮居左*/
+.ant-drawer-close{
+  left: 16px !important
+}
+
+/*model 弹框相关*/
+.ant-modal-content{
+  padding: 0 !important;
+  .ant-modal-header{
+    border-bottom: 1px solid var(--gray-border-light) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 14px 24px !important;
+  }
+  .ant-modal-body{
+    padding: 0 24px 20px 24px !important;
+  }
+  .ant-modal-footer{
+    border-top: 1px solid var(--gray-border-light) !important;
+    padding: 8px 24px !important;
+  }
+}
+
+.ant-modal-confirm{
+  .ant-modal-content{
+    padding: 24px !important;
+  }
+  .ant-modal-header{
+    padding: 0 !important;
+  }
+  .ant-modal-body{
+    padding: 0 !important;
+  }
+  .ant-modal-footer{
+    padding: 0 !important;
+  }
+}
+
+/*设置table cell无内容自动填充-*/
+.ant-table tbody tr .ant-table-cell:empty:after {
+  content: '-';
+}
+
+
+/*表单错误样式字体*/
+.ant-form-item-explain-error {
+  font-size: 12px !important;
+}
+
+/*带icon的Tab, icon右边距*/
+.ant-tabs-tab-icon{
+  margin-inline-end:4px !important;
+}
+
+/*分割面板- splitBarSize hover背景色*/
+.ant-splitter-bar-dragger:hover::before {
+  background-color: var(--brand-primary) !important;
+}
+
+.ant-splitter-bar-dragger::after{
+  width: 2px !important;
+}

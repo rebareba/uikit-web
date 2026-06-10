@@ -1,0 +1,56 @@
+/*.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab {*/
+/*  transition: none;*/
+/*}*/
+
+/*.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-remove:active {*/
+/*  color: unset;*/
+/*}*/
+
+/*.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-btn:active {*/
+/*  color: unset;*/
+/*}*/
+
+/*.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-btn:focus:not(:focus-visible) {*/
+/*  color: unset;*/
+/*}*/
+
+
+
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav {
+  padding-top: 8px;
+  /*padding-left: 8px;*/
+  height: 40px;
+  .anticon-close{
+    font-size: 13px;
+    margin-top: 3px;
+  }
+}
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav:before {
+  display: none;
+}
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab {
+  transition: none;
+  border-radius: 3px;
+  background: transparent;
+  border: none;
+  font-size: 14px
+}
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-active {
+  background: rgba(39, 110, 254, 0.1)
+}
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-remove:active {
+  color: unset;
+}
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-btn:active {
+  color: unset;
+}
+
+.tab-layout.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-btn:focus:not(:focus-visible) {
+  color: unset;
+}

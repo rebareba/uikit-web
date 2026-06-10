@@ -1,0 +1,55 @@
+:root {
+  /* 主色 - 蓝色品牌色 */
+  --brand-light: #E8F3FF;      /* 浅色/白底悬浮 */
+  --brand-disabled-text: #BEDAFF;  /* 文字禁用 */
+  --brand-disabled: #94BFFF;   /* 一般禁用 */
+  --brand-hover: #8AB9FF;      /* 悬浮 */
+  --brand-special: #6AA1FF;    /* 特殊场景 */
+  --brand-primary: #3C6CF5;    /* 主色 */
+  --brand-active: #276EFE;     /* 点击 */
+
+  /* 成功 - 绿色 */
+  --success-bg: #E8FFEA;      /* 浅色背景 */
+  --success-special: #AFF0B5; /* 特殊场景 */
+  --success-disabled: #7BE188; /* 禁用 */
+  --success-hover: #23C343;   /* 悬浮 */
+  --success-normal: #00B42A;  /* 常规 */
+  --success-active: #009A29;   /* 点击 */
+
+  /* 提示 - 黄色警告 */
+  --warning-bg: #FFF7E8;     /* 浅色背景 */
+  --warning-special: #FFE4BA; /* 特殊场景 */
+  --warning-disabled: #FFCF8B; /* 禁用 */
+  --warning-hover: #FF9A2E;  /* 悬浮 */
+  --warning-normal: #FF7D00; /* 常规 */
+  --warning-active: #D25F00; /* 点击 */
+
+  /* 错误 - 红色危险 */
+  --danger-bg: #FFECE8;        /* 浅色背景 */
+  --danger-special: #FDCDC5;   /* 特殊场景 */
+  --danger-disabled: #FBACA3;  /* 禁用 */
+  --danger-hover: #F76560;    /* 悬浮 */
+  --danger-normal: #F53F3F;    /* 常规 */
+  --danger-active: #CB272D;    /* 点击 */
+
+  /* 边框 - 灰色 */
+  --gray-border-light: #F2F3F5;     /* 浅 */
+  --gray-border-normal: #E5E6EB;   /* 一般 */
+  --gray-border-dark: #C9CDD4;      /* 深/悬浮 */
+  --gray-border-heavy: #86909C;     /* 重/按钮描边 */
+
+  /* 填充 - 灰色 */
+  --gray-fill-light: #F7F8FA;       /* 浅/禁用 */
+  --gray-fill-normal: #F2F3F5;      /* 一般/常规/白底悬浮 */
+  --gray-fill-dark: #E5E6EB;        /* 深/灰底悬浮 */
+  --gray-fill-heavy: #C9CDD4;       /* 重/特殊场景 */
+  --gray-fill-emphasis: #4E5969;    /* 强调/图标/特殊场景 */
+
+  /* 字体颜色 */
+  --text-white: #FFFFFF;      /* 纯白文字 */
+  --text-disabled: #C9CDD4;   /* 置灰信息 */
+  --text-secondary: #86909C;  /* 次要信息 */
+  --text-sub-emphasis: #4E5969; /* 次强调/正文标题 */
+  --text-emphasis: #1D2129;   /* 强调/正文标题 */
+  --text-logo: #006D6D;       /* logo字体 */
+}

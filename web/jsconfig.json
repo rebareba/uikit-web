@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "experimentalDecorators": true,
+    "paths": {
+      "@src/*": ["src/*"],
+      "@pages/*": ["src/pages/*"],
+      "@store": ["src/store/*"],
+      "@utils/*": ["src/utils/*"],
+      "@i18n/*": ["src/i18n/*"],
+      "@assets/*": ["src/assets/*"],
+      "@common/*": ["src/common/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@cf/*" : ["../packages/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
+  ]
+}

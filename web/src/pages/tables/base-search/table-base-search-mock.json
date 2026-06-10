@@ -1,0 +1,32 @@
+{
+  "getPageList": {
+    "success": {
+      "code": "0",
+      "success": true,
+      "data": {
+        "totalCount": 1,
+        "currentPage": 1,
+        "pageSize": 10,
+        "data": [
+          {
+            "id": 60192014606336,
+            "sn": "0001",
+            "name": "提示词名称",
+            "content": "#你是一个问题推荐助手，需要根据<题目>、<解析>以及老师和学生的<答疑内容>过程上下文，推测学生的下一个问题会是什么\n1. 需要仔细分析<题目>、<解析>以及老师和学生的<答疑内容>，理解学生的当前思路，推测学生的理解盲区2. 一次输出三条学生可能问的推测问题，每个推测问题字数控制在10个字以内3. 推测问题需要符合学生的思路，需要符合当前题目背景<题目>：{question}<解析>：{analysis}<答疑内容>：{dialog}",
+            "isActive": true,
+            "isLocked": false,
+            "type": "文本生成",
+            "createTime": 1754013658143,
+            "updateTime": 1754013658143,
+            "tenantId": 60192011198464
+          }
+        ],
+        "pages": 1,
+        "isFirstPage": true,
+        "isLastPage": true,
+        "hasPreviousPage": false,
+        "hasNextPage": false
+      }
+    }
+  }
+}
